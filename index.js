@@ -2,9 +2,10 @@ const redux = require('redux');
 const createStore = redux.createStore
 const bindActionCreators = redux.bindActionCreators
 
+
+
 const CAKE_ORDERED = 'CAKE_ORDERED'
 const CAKE_RESTOCKED = 'CAKE_RESTOKED'
-
 const orderCake = () => {
   return {
     type: CAKE_ORDERED,
@@ -19,8 +20,26 @@ const restokeCake = (payload) => {
   }
 }
 
+const ICECREAM_ORDERED = 'ICECREAM_ORDERED'
+const ICECREAM_RESTOCKED = 'ICECREAM_RESTOKED'
+const orderIceCream = () => {
+  return {
+    type: ICECREAM_ORDERED,
+    payload: 1
+  }
+}
+
+const restokeIceCream = (payload = 1) => {
+  return {
+    type: ICECREAM_RESTOCKED,
+    payload
+  }
+}
+
+
 const initaialState = {
-  numOfCakes: 10
+  numOfCakes: 10,
+  numOfIcecreams: 20
 }
 
 const reducer = (state = initaialState, action) => {
@@ -35,6 +54,18 @@ const reducer = (state = initaialState, action) => {
       return {
         ...state,
         numOfCakes: state.numOfCakes + action.payload
+      }
+
+    case ICECREAM_ORDERED:
+      return {
+        ...state,
+        numOfIcecreams: state.numOfIcecreams - 1
+      }
+
+    case ICECREAM_RESTOCKED:
+      return {
+        ...state,
+        numOfIcecreams: state.numOfIcecreams + action.payload
       }
 
     default:
@@ -52,10 +83,15 @@ const unsubscribe = store.subscribe(() => console.log('Update stae', store.getSt
 // store.dispatch(orderCake())
 // store.dispatch(restokeCake(3))
 
-const action = bindActionCreators({ orderCake, restokeCake }, store.dispatch)
+const action = bindActionCreators({ orderCake, restokeCake, orderIceCream, restokeIceCream }, store.dispatch)
 action.orderCake()
 action.orderCake()
 action.orderCake()
 action.restokeCake(3)
+
+action.orderIceCream()
+action.orderIceCream()
+action.orderIceCream()
+action.restokeIceCream(3)
 
 unsubscribe()
