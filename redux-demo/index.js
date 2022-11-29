@@ -76,6 +76,12 @@ const iceCreamReducer = (state = iceCreamInitaialState, action) => {
         numOfIcecreams: state.numOfIcecreams - 1
       }
 
+    case  CAKE_ORDERED:
+      return {
+        ...state,
+        numOfIcecreams: state.numOfIcecreams - 1
+      }
+
     case ICECREAM_RESTOCKED:
       return {
         ...state,
