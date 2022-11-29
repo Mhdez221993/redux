@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Mhdez221993/redux-demo#readme",
   "dependencies": {
+    "immer": "^9.0.16",
     "redux": "^4.2.0"
   }
 }
