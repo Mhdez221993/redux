@@ -37,12 +37,15 @@ const restokeIceCream = (payload = 1) => {
 }
 
 
-const initaialState = {
+const cakeInitialState = {
   numOfCakes: 10,
+}
+
+const iceCreamInitaialState = {
   numOfIcecreams: 20
 }
 
-const reducer = (state = initaialState, action) => {
+const cakeReducer = (state = cakeInitialState, action) => {
   switch (action.type) {
     case CAKE_ORDERED:
       return {
@@ -56,6 +59,13 @@ const reducer = (state = initaialState, action) => {
         numOfCakes: state.numOfCakes + action.payload
       }
 
+    default:
+      return state
+  }
+}
+
+const iceCreamReducer = (state = iceCreamInitaialState, action) => {
+  switch (action.type) {
     case ICECREAM_ORDERED:
       return {
         ...state,
