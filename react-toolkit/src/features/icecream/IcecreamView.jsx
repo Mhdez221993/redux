@@ -11,8 +11,8 @@ const IcecreamView = () => {
     <div>
         <h2>Number of ice cream- {numOfIcecreams}</h2>
         <button onClick={() => dispatch(ordered())}>Order ice cream</button>
-        <input type="text" value={value} onChange={(e) => setValue(parseInt(e.target.value))}/>
-        <button onClick={() => dispatch(restoked(value))}>Restock ice cream</button>
+        <input type='number' value={value} onChange={(e) => setValue(e.target.value)}/>
+        <button onClick={() => dispatch(restoked(parseInt(value)))}>Restock ice cream</button>
     </div>
   )
 }
