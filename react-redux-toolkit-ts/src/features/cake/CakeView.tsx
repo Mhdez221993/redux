@@ -1,11 +1,9 @@
 import { ordered, restoked } from './cakeSlice';
-import { useDispatch, useSelector } from 'react-redux';
-
-import React from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 const CakeView = () => {
-  const {numOfCakes} = useSelector(state => state.cakes)
-  const dispatch = useDispatch()
+  const {numOfCakes} = useAppSelector(state => state.cakes)
+  const dispatch = useAppDispatch()
 
   return (
     <div>
