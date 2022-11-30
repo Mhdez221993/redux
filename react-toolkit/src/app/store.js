@@ -6,7 +6,7 @@ import userSlice from '../features/user/userSlice'
 
 const store = configureStore({
   reducer: {
-    cake: cakeReducer,
+    cakes: cakeReducer,
     ice: icecreamReducer,
     user: userSlice
   },
