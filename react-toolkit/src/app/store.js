@@ -7,8 +7,8 @@ import userSlice from '../features/user/userSlice'
 const store = configureStore({
   reducer: {
     cakes: cakeReducer,
-    ice: icecreamReducer,
-    user: userSlice
+    icecreams: icecreamReducer,
+    users: userSlice
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 })
